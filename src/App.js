@@ -17,7 +17,6 @@ const App = () => (
       <Route path={routes.home} exact component={HomePage} />
       <Route path={routes.movies} exact component={MoviesPage} />
       <Route path={routes.details} component={MovieDetailsPage} />
-
       <Route component={NotFound} />
     </Switch>
   </Container>

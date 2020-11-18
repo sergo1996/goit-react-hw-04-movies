@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import movieAPI from "../services/movieAPI";
-import Loader from "./Loader";
+import movieAPI from "../../services/movieAPI";
+import Loader from "../Loader";
 
 export default class Cast extends Component {
   state = {

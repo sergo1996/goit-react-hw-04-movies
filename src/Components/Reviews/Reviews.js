@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import movieAPI from "../services/movieAPI";
+import movieAPI from "../../services/movieAPI";
 
 export default class Reviews extends Component {
   state = {

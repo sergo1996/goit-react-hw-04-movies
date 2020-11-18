@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import movieAPI from "../services/movieAPI";
+import movieAPI from "../../services/movieAPI";
 import styles from "./Movie.module.scss";
 
 const MovieCard = ({ movie, genres }) => (
@@ -26,5 +26,5 @@ export default MovieCard;
 
 MovieCard.propType = {
   movie: PropTypes.object,
-  genres: PropTypes.string,
+  genres: PropTypes.string
 };

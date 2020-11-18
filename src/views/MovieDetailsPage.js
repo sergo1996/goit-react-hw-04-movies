@@ -1,17 +1,13 @@
-import React, { Component, lazy, Suspense } from "react";
-import { NavLink, Route } from "react-router-dom";
-import Loader from "react-loader-spinner";
+import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 
 import movieAPI from "../services/movieAPI";
 import MovieCard from "../Components/Movie";
-import routes from "../services/routes";
 
-const asyncCast = lazy(() =>
-  import("../Components/Cast.js" /* webpackChunkName: "movie_cast" */)
-);
-const asyncReviews = lazy(() =>
-  import("../Components/Reviews.js" /* webpackChunkName: "movie_reviews" */)
-);
+const pathname = {
+  cast: "/cast",
+  reviews: "/reviews",
+};
 
 export default class MovieDetails extends Component {
   state = {
@@ -39,14 +35,14 @@ export default class MovieDetails extends Component {
     }
 
     // переход на страницу movies, если фильм был открыт в новой вкладке
-    this.props.history.push(routes.movies);
+    this.props.history.push("/movies");
   };
 
   render() {
     const { match } = this.props;
     const { state } = this.props.location;
     const { movie } = this.state;
-    let stateFrom = state && state.from ? state.from : routes.home;
+    let stateFrom = state && state.from ? state.from : "/";
 
     return (
       <>
@@ -70,32 +66,24 @@ export default class MovieDetails extends Component {
           <li>
             <NavLink
               to={{
-                pathname: match.url + routes.cast,
+                pathname: match.url + pathname.cast,
                 state: { from: stateFrom },
               }}
             >
               Cast
             </NavLink>
           </li>
-          <li>
+          {/* <li>
             <NavLink
               to={{
-                pathname: match.url + routes.reviews,
+                pathname: match.url + pathname.reviews,
                 state: { from: stateFrom },
               }}
             >
               Reviews
             </NavLink>
-          </li>
+          </li> */}
         </ul>
-
-        <Suspense fallback={<Loader />}>
-          <Route path={`${match.path}${routes.cast}`} component={asyncCast} />
-          <Route
-            path={`${match.path}${routes.reviews}`}
-            component={asyncReviews}
-          />
-        </Suspense>
       </>
     );
   }

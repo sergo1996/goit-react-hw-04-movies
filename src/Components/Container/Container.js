@@ -1,11 +1,10 @@
 import React from "react";
-import AppBar from "./AppBar";
-// import './Container.scss';
+import AppBar from "../AppBar";
+import "./container.css";
 
 const Container = ({ children }) => (
-  <div>
+  <div className="backgraondcolor">
     <AppBar />
-    <hr />
     {children}
   </div>
 );
