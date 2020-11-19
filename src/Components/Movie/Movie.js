@@ -8,9 +8,15 @@ const MovieCard = ({ movie, genres }) => (
   <div className={styles.container}>
     <img
       className={styles.img}
-      src={`${movieAPI.BASE_IMG_URL}${movie.poster_path}`}
+      // src={`${movieAPI.BASE_IMG_URL}${movie.poster_path}`}
+      src={
+        movie.poster_path !== null
+          ? `${movieAPI.BASE_IMG_URL}${movie.poster_path}`
+          : "https://i.ibb.co/XyLNv09/noimage.jpg"
+      }
       alt={movie.title}
     />
+
     <div className={styles.description}>
       <h1>{movie.title}</h1>
 

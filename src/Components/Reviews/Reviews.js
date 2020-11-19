@@ -18,18 +18,18 @@ export default class Reviews extends Component {
     const { reviews } = this.state;
     return reviews.length > 0 ? (
       <>
-        <h2>Reviews</h2>
+        <h2 style={{ color: "white" }}>Reviews</h2>
         <ul>
           {reviews.map((review) => (
             <li key={review.id}>
-              <h5>{review.author}</h5>
-              <p>{review.content}</p>
+              <h5 style={{ color: "white" }}>{review.author}</h5>
+              <p style={{ color: "white" }}>{review.content}</p>
             </li>
           ))}
         </ul>
       </>
     ) : (
-      <p>There are no reviews...</p>
+      <p style={{ color: "white" }}>There are no reviews...</p>
     );
   }
 }

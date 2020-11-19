@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "../AppBar";
-import "./container.css";
+// import "./container.css";
 
 const Container = ({ children }) => (
   <div className="backgraondcolor">

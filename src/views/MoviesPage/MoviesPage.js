@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import getQueryParams from "../services/utils/getQueryParams";
-import movieAPI from "../services/movieAPI";
-import SearchBox from "../Components/SearchBox";
-import Loader from "../Components/Loader";
+import getQueryParams from "../../services/utils/getQueryParams";
+import movieAPI from "../../services/movieAPI";
+import SearchBox from "../../Components/SearchBox";
+import Loader from "../../Components/Loader";
+import style from "./style.module.scss";
 
 export default class MoviesPage extends Component {
   state = {
@@ -18,6 +19,8 @@ export default class MoviesPage extends Component {
     //проверяем наличие query, если есь, то происходит рендер
     if (query) {
       this.fetchMovie(query);
+    } else {
+      this.fetchMovie("science");
     }
   }
 
@@ -54,26 +57,38 @@ export default class MoviesPage extends Component {
     const { match } = this.props;
 
     return (
-      <>
+      <div className={style.block_cover}>
         <SearchBox onSubmit={this.handleChangeQuery} />
         {loading && <Loader />}
         {movies.length > 0 && (
-          <ul>
+          <ul className={style.block_items_list}>
             {movies.map((movie) => (
-              <li key={movie.id}>
+              <li className={style.block_item} key={movie.id}>
                 <NavLink
+                  style={{ textDecoration: "none" }}
                   to={{
                     pathname: `${match.url}/${movie.id}`,
                     state: { from: this.props.location },
                   }}
                 >
-                  {movie.title}
+                  <div className={style.block_information}>
+                    <img
+                      style={{ height: "350px" }}
+                      src={
+                        movie.poster_path !== null
+                          ? `${movieAPI.BASE_IMG_URL}${movie.poster_path}`
+                          : "https://i.ibb.co/XyLNv09/noimage.jpg"
+                      }
+                      alt={movie.title}
+                    />
+                    <span> {movie.title}</span>
+                  </div>
                 </NavLink>
               </li>
             ))}
           </ul>
         )}
-      </>
+      </div>
     );
   }
 }

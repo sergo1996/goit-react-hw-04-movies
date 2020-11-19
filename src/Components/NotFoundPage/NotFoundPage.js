@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import routes from "../services/routes";
+import routes from "../../services/routes";
 
 const styles = {
   container: { textAlign: "center" },
@@ -12,7 +12,7 @@ const NotFound = () => (
     <h1 style={styles.status}>404</h1>
     <p>
       Страница не найдена! Перейти на главную страницу можно по{" "}
-      <Link to={routes.home}>ссылке</Link>.
+      <Link to="/">ссылке</Link>.
     </p>
   </div>
 );

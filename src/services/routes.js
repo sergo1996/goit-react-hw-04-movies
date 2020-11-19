@@ -1,11 +1,3 @@
-// export default {
-//   home: "/",
-//   movies: "/movies",
-//   details: "/movies/:movId",
-//   cast: "/cast",
-//   reviews: "/reviews",
-// };
-
 import { lazy } from "react";
 
 const routes = [
@@ -14,7 +6,7 @@ const routes = [
     label: "Home",
     exact: true,
     component: lazy(() =>
-      import("../views/HomePage.js" /* webpackChunkName: "HomePage" */)
+      import("../views/HomePage/HomePage.js" /* webpackChunkName: "HomePage" */)
     ),
   },
   {
@@ -22,16 +14,20 @@ const routes = [
     label: "Movies",
     exact: true,
     component: lazy(() =>
-      import("../views/MoviesPage.js" /* webpackChunkName: "MoviesPage"*/)
+      import(
+        "../views/MoviesPage/MoviesPage.js" /* webpackChunkName: "MoviesPage"*/
+      )
     ),
   },
 
   {
     path: "/movies/:movId",
 
-    exact: true,
+    exact: false,
     component: lazy(() =>
-      import("../views/MovieDetailsPage.js" /* webpackChunkName: "MoviesPage"*/)
+      import(
+        "../views/MovieDetailsPage/MovieDetailsPage.js" /* webpackChunkName: "MoviesPage"*/
+      )
     ),
   },
   {
@@ -39,42 +35,11 @@ const routes = [
 
     exact: true,
     component: lazy(() =>
-      import("../views/MovieDetailsPage.js" /* webpackChunkName: "MoviesPage"*/)
+      import(
+        "../views/MovieDetailsPage/MovieDetailsPage.js" /* webpackChunkName: "MoviesPage"*/
+      )
     ),
   },
-
-  {
-    path: "/movies/:movId/:id",
-    exact: true,
-    component: lazy(() =>
-      import("../Components/Cast" /* webpackChunkName: "Cast"*/)
-    ),
-  },
-  // {
-  //   path: "/movies/:movId/:id",
-
-  //   exact: true,
-  //   component: lazy(() =>
-  //     import("../Components/Reviews" /* webpackChunkName: "Reviews"*/)
-  //   ),
-  // },
-
-  // {
-  //   path: "/cast",
-  //   exact: true,
-  //   component: lazy(() =>
-  //     import(
-  //       "../Component/Doctor/Doctor.js" /* webpackChunkName: "dodctors-page"*/
-  //     )
-  //   ),
-  // },
-  // {
-  //   path: "/reviews",
-  //   exact: true,
-  //   component: lazy(() =>
-  //     import("../views/Photo/Photo.js" /* webpackChunkName: "photo-page"*/)
-  //   ),
-  // },
 ];
 
 export default routes;

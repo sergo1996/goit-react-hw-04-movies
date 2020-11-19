@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import movieAPI from "../../services/movieAPI";
 import Loader from "../Loader";
+import "./style.css";
 
 export default class Cast extends Component {
   state = {
@@ -11,13 +12,12 @@ export default class Cast extends Component {
 
   componentDidMount() {
     const movieId = this.props.match.params.movId;
-    // console.log(movieId);
 
     this.setState({ loading: true });
 
     movieAPI
       .fetchActors(movieId)
-      // .then(console.log)
+
       .then((actors) => this.setState({ actors: actors.cast }))
       .catch((error) => this.setState({ error }))
       .finally(() => this.setState({ loading: false }));
@@ -27,17 +27,21 @@ export default class Cast extends Component {
     const { actors, loading } = this.state;
 
     return (
-      <>
+      <div className="block_cover">
         {actors && (
           <>
             {loading && <Loader />}
-            <h2>Actors</h2>
+            <h2 className="title_addition_text">Actors</h2>
 
-            <ul>
+            <ul className="block_item_serch">
               {actors.map((actor) => (
                 <li key={actor.id}>
                   <img
-                    src={`${movieAPI.BASE_IMG_URL}${actor.profile_path}`}
+                    src={
+                      actor.profile_path !== null
+                        ? `${movieAPI.BASE_IMG_URL}${actor.profile_path}`
+                        : "https://i.ibb.co/XyLNv09/noimage.jpg"
+                    }
                     alt={actor.name}
                   />
                   <p>{actor.name}</p>
@@ -47,7 +51,7 @@ export default class Cast extends Component {
             </ul>
           </>
         )}
-      </>
+      </div>
     );
   }
 }

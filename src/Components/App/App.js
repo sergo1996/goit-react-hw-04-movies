@@ -9,7 +9,7 @@ import routes from "../../services/routes";
 
 import Loaders from "../Loader/Loader";
 
-import NotFound from "../../views/NotFoundPage";
+import NotFound from "../NotFoundPage/NotFoundPage";
 
 import "./App.css";
 const App = () => (
