@@ -1,6 +1,6 @@
 import React from "react";
 import AppBar from "../AppBar";
-// import "./container.css";
+import PropTypes from "prop-types";
 
 const Container = ({ children }) => (
   <div className="backgraondcolor">
@@ -8,4 +8,9 @@ const Container = ({ children }) => (
     {children}
   </div>
 );
+
+Container.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export default Container;

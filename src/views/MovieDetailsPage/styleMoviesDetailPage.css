@@ -36,12 +36,19 @@
 }
 
 .block_botom li{
+  margin-left: 20px;
+
+}
+
+.navigationlink{
   width:30%;
-  font-size: 15px;
-  text-align: center;
-  border-radius: 15px;
+  padding: 15px 100px;
   background-color: rgba(210, 105, 30, 0.261);
-  padding: 15px;
-  margin-left: 10px;
-  color: #bc2e1e;
+  border-radius: 15px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.active_link{
+  background-color: rgb(5, 5, 36);
 }

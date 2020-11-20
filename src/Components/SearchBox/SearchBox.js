@@ -17,22 +17,6 @@ export default class SearchBox extends Component {
 
   render() {
     return (
-      // <form
-      //   className="searchform"
-      //   onSubmit={this.handleSubmit}
-
-      // >
-      //   <input
-      //     className="inputserch"
-      //     type="text"
-      //     value={this.state.value}
-      //     onChange={this.handleChange}
-      //     autocomplete="off"
-      //     placeholder="Search movie..."
-
-      //   />
-      //   <button className="inputbutton" type="submit"></button>
-      // </form>
       <form className="SearchForm" onSubmit={this.handleSubmit}>
         <button type="submit" className="SearchForm-button">
           <span className="SearchForm-button-label">Search</span>

@@ -1,44 +1,4 @@
-/* .searchform {
-  margin: 0 auto;
-  max-width: 600px;
-  border-radius: 3px;
-  padding: 0 50px;
-  max-height: 38px;
-}
 
-.inputserch {
-  position: relative;
-  bottom: 7px;
-  display: inline-block;
-  width: 70%;
-  height: 38px;
-  font: inherit;
-  outline: none;
-
-}
-
-.inputbutton {
-  width: 30%;
-  right: 0;
-  width: 48px;
-  height: 38px;
-
-  background-repeat: no-repeat;
-  background-position: 50%;
-  opacity: 0.6;
-  cursor: pointer;
-
-  background-color: white;
-  padding: 4px;
-  border-radius: 20%;
-  height: 38px;
-
-  width: 40px; 
-  background-position: center;
-  background-repeat: no-repeat; 
-  background-size: cover; 
-  background-image: url("https://i.ibb.co/sHxmPwb/w512h5121380477032search.png");
-} */
 .SearchForm {
   margin: 0 auto;
   display: flex;
@@ -51,6 +11,7 @@
   overflow: hidden;
   border-bottom: 4px solid rgba(169, 160, 126, 0.577);
   border-radius: 16px;
+  margin-top: 20px;
 }
 
 .SearchForm-button {

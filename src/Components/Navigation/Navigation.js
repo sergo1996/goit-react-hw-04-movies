@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import routes from "../../services/routes";
 import style from "./style.module.scss";
 
@@ -11,13 +11,14 @@ const Navigation = () => (
           <>
             {item.label && (
               <li>
-                <Link
+                <NavLink
                   exact={item.exact}
                   to={item.path}
                   className={style.navigation_link}
+                  activeClassName={style.active_link}
                 >
                   {item.label}
-                </Link>
+                </NavLink>
               </li>
             )}
             )

@@ -74,7 +74,12 @@ export default class MovieDetails extends Component {
         <ul className="block_botom">
           <li>
             <NavLink
-              style={{ textDecoration: "none", color: "white" }}
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+              className="navigationlink"
+              activeClassName="active_link"
               to={{
                 pathname: match.url + pathname.cast,
                 state: { from: stateFrom },
@@ -85,10 +90,12 @@ export default class MovieDetails extends Component {
           </li>
           <li>
             <NavLink
+              className="navigationlink"
               style={{
                 textDecoration: "none",
                 color: "white",
               }}
+              activeClassName="active_link"
               to={{
                 pathname: match.url + pathname.reviews,
                 state: { from: stateFrom },

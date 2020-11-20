@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import movieAPI from "../../services/movieAPI";
 import { NavLink } from "react-router-dom";
 import style from "./style.module.scss";
+import fadeLogo from "./transition.module.scss";
+import { CSSTransition } from "react-transition-group";
 
 export default class Home extends Component {
   state = {
@@ -26,7 +28,16 @@ export default class Home extends Component {
     const { movies } = this.state;
     return (
       <div className={style.block_cover}>
-        <h1>Trending today</h1>
+        <CSSTransition
+          in={true}
+          classNames={fadeLogo}
+          timeout={500}
+          appear
+          unmountOnExit
+        >
+          <h1>Trending today</h1>
+        </CSSTransition>
+
         {movies.length > 0 && (
           <ul className={style.block_items_list}>
             {movies.map((movie) => (

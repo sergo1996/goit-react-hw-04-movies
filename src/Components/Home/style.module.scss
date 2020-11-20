@@ -1,3 +1,15 @@
+.appear {
+	transform: scale(0.1);
+}
+
+.appearActive {
+	transform: scale(1);
+	transition: all 500ms linear;
+}
+
+
+
+
 .block_cover{
   margin: 0 auto;
   width: 960px;
